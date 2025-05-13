@@ -68,7 +68,7 @@ read client
 client=${client:-alamos}
 
 # Generate client key and certificate signing request (CSR)
-openssl genpkey -quiet -algorithm RSA -out ${CERT_PATH}/client.key
+openssl genrsa -out ${CERT_PATH}/client.key 2048
 openssl req -quiet -new -key ${CERT_PATH}/client.key -out ${CERT_PATH}/client.csr \
   -subj "/C=$country/CN=$client"
 
